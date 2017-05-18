@@ -42,7 +42,7 @@ export class SwagProductScreen extends React.Component {
       <SimplePage>
         <ProductPage product={product} />
         <Button
-          onPress={() => navigate("CheckoutCart", { addProduct: product.id })}
+          onPress={() => navigate("CheckoutCart")}
           title="Add to Cart!"
         />
       </SimplePage>

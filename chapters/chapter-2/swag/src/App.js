@@ -11,7 +11,7 @@ import CheckoutNavigator from "./CheckoutNavigator";
 
 const App = StackNavigator(
   {
-    Cart: { screen: CheckoutNavigator },
+    Checkout: { screen: CheckoutNavigator },
     Confirmation: { screen: ConfirmationScreen }
   },
   {

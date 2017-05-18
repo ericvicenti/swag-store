@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import { Text, View, ScrollView } from "react-native";
 import { StackNavigator, TabNavigator } from "react-navigation";
-import { SimplePage, SwagBrowseList, ProductPage, PRODUCTS } from "./Common5";
+import { SimplePage, SwagBrowseList, ProductPage, PRODUCTS } from "./Common0";
 import { Button } from "react-native-elements";
 
 export class SwagListScreen extends React.Component {
@@ -42,7 +42,7 @@ export class SwagProductScreen extends React.Component {
       <SimplePage>
         <ProductPage product={product} />
         <Button
-          onPress={() => navigate("CheckoutCart", { addProduct: product.id })}
+          onPress={() => navigate("CheckoutCart")}
           title="Add to Cart!"
         />
       </SimplePage>

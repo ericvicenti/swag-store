@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import { StackNavigator } from "react-navigation";
 
-import { SwagListScreen, SwagProductScreen } from "./Screens5";
+import { SwagListScreen, SwagProductScreen } from "./Screens0";
 
 const CheckoutNavigator = StackNavigator({
   SwagList: { screen: SwagListScreen },

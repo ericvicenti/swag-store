@@ -2,7 +2,7 @@
  * @flow
  */
 
-import App from "./src/App4";
+import App from "./src/App3";
 import { AppRegistry } from "react-native";
 
 AppRegistry.registerComponent("Swag", () => App);

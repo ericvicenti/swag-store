@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import { StackNavigator } from "react-navigation";
 import { CheckoutRoutes } from "swag-checkout-flow";
-import BrowserNavigator from "./BrowserNavigator5";
+import BrowserNavigator from "./BrowserNavigator0";
 
 const App = StackNavigator(
   {

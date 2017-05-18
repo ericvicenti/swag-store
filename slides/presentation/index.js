@@ -249,13 +249,14 @@ const CHAPTERS = [
       Code("renderNav1", 14, 19, "Handles actions with the router"),
       Code("CheckoutNavigator3", 28, 31, "Set up the router"),
       Code("CheckoutRouter3", 13, 18, "Set up like a navigator"),
-      Code("renderNav1", 8, 9, "Nav state defined by TabRouter"),
-      Code("navState", 0, 4, "Looks like this"),
-      Code("CheckoutNavigator3", 38, 39, "Within the navigator render"),
-      Code("CheckoutNavigator3", 51, 65, "Navigator renders a h-scroll view"),
-      Code("CheckoutNavigator3", 65, 66, "uses the routes to render each screen"),
-      Code("CheckoutNavigator3", 66, 69, "gets screen components from router"),
+      Code("renderNav1", 2, 3, "State defined by TabRouter"),
+      Code("navState", 0, 4, ""),
+      // Code("CheckoutNavigator3", 38, 39, "Within the navigator render"),
+      // Code("CheckoutNavigator3", 51, 65, "Navigator renders a h-scroll view"),
+      Code("CheckoutNavigator3", 64, 65, "Render each route"),
+      // Code("CheckoutNavigator3", 66, 69, "gets screen components from router"),
       Code("CheckoutNavigator3", 33, 37, "Uses the index to set the scroll"),
+      Code("CheckoutNavigator3", 88, 92, "Tab buttons navigate"),
       PhoneDemo(images.c3i, images.c3a)
     ]
   },
@@ -292,7 +293,7 @@ const CHAPTERS = [
       Code("c5sh", 13, 14, "Add libraries to apps"),
       Code("c5sh", 15, 16, "Run app"),
       Code("c5sh", 15, 16, "(also runs dependencies)"),
-      Statement("This barely works,"),
+      Statement("This doesn't quite work yet,"),
       Statement("so we need your help!"),
       LinkSlide("Issues and PRs are welcome!", "github/ericvicenti/create-react-workspace"),
     ]
@@ -301,9 +302,11 @@ const CHAPTERS = [
     // CHAPTER 6
     title: "Web Code Sharing",
     slides: [
-      Statement("Universal components are blocked by tooling"),
-      Statement("But in theory.."),
-      Code("webflow", 1, 2, "Get the static router from a navigator"),
+      Statement("Universal components are the dream"),
+      Statement("React Native Web goes a long way,"),
+      Statement("..but we live in dependency hell"),
+      Statement("Navigation is ready to share!"),
+      Code("webflow", 1, 2, "Get router from a navigator"),
       Code("webflow", 3, 5, "Extract data from URL"),
       Code("webflow", 6, 7, "Navigation action from URL"),
       Code("webflow", 8, 13, "When an action is found,"),
@@ -320,17 +323,16 @@ const CHAPTERS = [
     title: "Finale",
     slides: [
       PhoneDemo(images.c5i, images.c5a),
-      Code("c7sh", 0, 1, "Create simple swag app"),
-      Code("c7sh", 2, 3, "Create new full store app"),
-      Code("c7sh", 4, 5, "A lib to share checkout code"),
+      // Code("c7sh", 0, 1, "Create simple swag app"),
+      Code("c7sh", 0, 3, "Create native apps"),
+      Code("c7sh", 4, 5, "Shared checkout code"),
       Code("swag-checkout-flow-SwagCheckoutFlow5", 13, 20),
       Code("c7sh", 6, 7, "Add the lib to the apps"),
       Code("c7sh", 8, 9, "Develop the store app"),
-      Code("swag-store-App5", 9, 14, "Create a stack navigator"),
+      Code("swag-store-Screens5", 43, 47, "Navigate to shared route"),
       Code("swag-store-App5", 6, 7, "Import screens from lib"),
       Code("swag-store-App5", 12, 13, "Splat into route config"),
-      Code("swag-store-App5", 7, 8),
-      Code("swag-store-Screens5", 44, 47, "Navigate to shared route"),
+      Code("swag-store-App5", 11, 12),
       Statement("Standalone checkout experience"),
       Code("c8sh", 0, 2, "Publish the checkout to npm"),
       // Code("c8sh", 4, 5, "Install workspace creation script"),
@@ -420,9 +422,9 @@ export default class Presentation extends Component {
         {Statement("NavigationExperimental")}
         {Statement(<S type="strikethrough">NavigationExperimental</S>)}
         {Statement("React Navigation")}
-        {Image(images.heroes)}
-        {Image(images.swag)}
+        {Statement("A tale of React Navigation")}
         {Image(images.jaredSwag)}
+        {Image(images.swag)}
 
         {CHAPTERS.map((chapter, index) => [
           <ChapterIntroSlide title={chapter.title} index={index} key={index} />,

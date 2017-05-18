@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from "react";
-import { addNavigationHelpers } from "react-navigation";
+import { addNavigationHelpers, NavigationActions } from "react-navigation";
 import {
   Animated,
   Dimensions,
@@ -16,7 +16,7 @@ import {
 } from "react-native";
 import { Button } from "react-native-elements";
 
-import CheckoutRouter from "./CheckoutRouter4";
+import CheckoutRouter from "./CheckoutRouter3";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
@@ -41,17 +41,16 @@ class CheckoutNavigator extends Component {
       route => {
         return addNavigationHelpers({
           state: route,
-          dispatch: navigation.dispatch
+          dispatch: this.props.navigation.dispatch
         });
       }
     );
-    const navigation = this.props.navigation;
     const scrollPosition = this.state.scrollPosition;
     return (
       <View style={{ flex: 1 }}>
         <Animated.ScrollView
           ref={s => {
-            this._scroller = s.getNode();
+            this._scroller = s && s.getNode();
           }}
           scrollEventThrottle={1}
           onScroll={Animated.event(
@@ -63,17 +62,7 @@ class CheckoutNavigator extends Component {
           pagingEnabled={true}
           horizontal={true}
         >
-          {this.props.navigation.state.routes.map((route, routeIndex) => {
-            const ScreenComponent = CheckoutRouter.getComponentForRouteName(
-              route.routeName
-            );
-            const screenNavigation = screenNavigationProps[routeIndex];
-            return (
-              <View key={route.key} style={{ flex: 1, width: SCREEN_WIDTH }}>
-                <ScreenComponent navigation={screenNavigation} />
-              </View>
-            );
-          })}
+          {this.props.navigation.state.routes.map(this.renderScreen)}
         </Animated.ScrollView>
         <View
           style={{
@@ -97,7 +86,10 @@ class CheckoutNavigator extends Component {
               });
               return (
                 <TouchableOpacity
-                  onPress={() => navigation.navigate(routeName)}
+                  onPress={() =>
+                    this.props.navigation.dispatch(
+                      NavigationActions.navigate(routeName)
+                    )}
                   key={routeName}
                   style={{
                     backgroundColor: "transparent",
@@ -137,7 +129,7 @@ class CheckoutNavigator extends Component {
               style={{ margin: 3, marginRight: -8 }}
               raised
               backgroundColor="rgb(20,100,20)"
-              onPress={() => navigation.navigate("Confirmation")}
+              onPress={() => this.props.navigation.navigate("Confirmation")}
               title="Continue"
             />
           </View>
@@ -145,6 +137,21 @@ class CheckoutNavigator extends Component {
       </View>
     );
   }
+
+  renderScreen = (route, routeIndex) => {
+    const ScreenComponent = CheckoutRouter.getComponentForRouteName(
+      route.routeName
+    );
+    const screenNavigation = addNavigationHelpers({
+      state: route,
+      dispatch: this.props.navigation.dispatch
+    });
+    return (
+      <View key={route.key} style={{ flex: 1, width: SCREEN_WIDTH }}>
+        <ScreenComponent navigation={screenNavigation} />
+      </View>
+    );
+  };
 
   positionChangeTimeout: ?number = null;
 
