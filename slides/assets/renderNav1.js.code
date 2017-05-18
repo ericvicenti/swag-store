@@ -1,0 +1,20 @@
+class AppWrapper extends Component {
+  state = {
+    nav: App.router.getStateForAction(NavigationActions.init())
+  };
+  render() {
+    return (
+      <App
+        navigation={{
+          state: this.state.nav,
+          dispatch: this.dispatch
+        }}
+      />
+    );
+  }
+  dispatch = action => {
+    this.setState(state => ({
+      nav: App.router.getStateForAction(action, state.nav)
+    }));
+  };
+}

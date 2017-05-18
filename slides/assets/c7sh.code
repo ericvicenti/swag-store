@@ -1,0 +1,9 @@
+npm run create-native-app swag
+
+npm run create-native-app swag-store
+
+npm run create-library swag-checkout-flow
+
+# edit dependencies
+
+npm start swag-store

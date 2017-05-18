@@ -1,0 +1,16 @@
+
+npm i -g create-react-workspace
+
+create-react-workspace dev
+
+cd dev
+
+npm run create-library swag-checkout-flow
+
+npm run create-native-app swag
+
+npm run create-native-app swag-store
+
+# edit dependencies
+
+npm start swag

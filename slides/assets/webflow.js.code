@@ -1,0 +1,22 @@
+
+const router = App.router;
+
+// const path = '/todo/1234';
+// const params = { isEditing: true };
+
+const action = router.getActionForPathAndParams(path, params);
+
+let state = notFoundNavigationState;
+
+if (action) {
+  state = router.getStateForAction(action);
+}
+
+const navigation = {
+  state: state,
+  dispatch: () => {},
+};
+
+const html = ReactDOMServer.renderToString(
+  <App navigation={navigation} />
+);

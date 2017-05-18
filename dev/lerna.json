@@ -1,0 +1,11 @@
+{
+  "lerna": "2.0.0-rc.4",
+  "packages": [
+    "swag",
+    "swag-store",
+    "swag-checkout-flow",
+    "swag-store-native"
+  ],
+  "npmClient": "npm",
+  "version": "0.0.0"
+}

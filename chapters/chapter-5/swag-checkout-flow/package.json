@@ -1,0 +1,27 @@
+{
+  "name": "swag-checkout-flow",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel src/ --source-maps --out-dir lib/ --watch",
+    "build": "babel src/ --source-maps --out-dir lib/"
+  },
+  "files": [
+    "assets",
+    "lib",
+    "index.js"
+  ],
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-native": "^0.44.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1"
+  },
+  "dependencies": {
+    "babel-preset-react-native": "^1.9.2",
+    "react": "^15.5.4",
+    "react-native-elements": "^0.12.1",
+    "react-navigation": "^1.0.0-beta.10"
+  }
+}
